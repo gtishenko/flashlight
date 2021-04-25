@@ -11,6 +11,7 @@ import {
     Group,
     Panel,
     PanelHeader,
+    Placeholder,
     Snackbar
 } from "@vkontakte/vkui";
 
@@ -18,6 +19,9 @@ import Icon16ErrorCircleFill from '@vkontakte/icons/dist/16/error_circle_fill';
 import Icon20CheckCircleFillGreen from '@vkontakte/icons/dist/20/check_circle_fill_green';
 import { Icon24Pause, Icon24Play, Icon24Replay } from '@vkontakte/icons';
 import bridge from '@vkontakte/vk-bridge';
+
+import torch_on from '../../../images/torch_on.svg';
+import torch_off from '../../../images/torch_off.svg';
 
 var flashlight = [false, false, false, false, false, false, false, false];
 
@@ -127,7 +131,10 @@ class HomePanelBase extends React.Component {
             <Panel id={id}>
                 <PanelHeader>Главная</PanelHeader>
                 <Group>
-                    <FixedLayout vertical="bottom">
+                    <Placeholder stretched>
+                        <img width="50%" src={this.state.flashlight ? torch_on : torch_off} />
+                    </Placeholder>
+                    <FixedLayout style={{ padding: 0 }} vertical="bottom">
                         <table border="1" borderColor="#4986CC" style={{ width: "100%", borderColor: "#4986CC", borderCollapse: 'collapse' }}>
                             <tbody>
                                 <tr>

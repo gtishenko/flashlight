@@ -130,38 +130,40 @@ class App extends React.Component {
             <ConfigProvider platform={this.state.platform} isWebView={true} scheme={colorScheme}>
                 <AdaptivityProvider>
                     <AppRoot>
-                        <Root id="home" activeView={activeView} popout={popout}>
-                            <View
-                                id="home"
-                                modal={homeModals}
-                                activePanel={getActivePanel("home")}
-                                history={history}
-                                onSwipeBack={() => goBack()}
-                            >
-                                <HomePanelBase id="base" withoutEpic={false}/>
-                                <HomePanelGroups id="groups"/>
-                            </View>
-                        </Root>
-                        <Root id="more" activeView={activeView} popout={popout}>
-                            <View
-                                id="more"
-                                modal={homeModals}
-                                activePanel={getActivePanel("more")}
-                                history={history}
-                                onSwipeBack={() => goBack()}
-                            >
-                                <MorePanelBase id="callmodal"/>
-                            </View>
-                            <View
-                                id="modal"
-                                modal={homeModals}
-                                activePanel={getActivePanel("modal")}
-                                history={history}
-                                onSwipeBack={() => goBack()}
-                            >
-                                <MorePanelExample id="filters"/>
-                            </View>
-                        </Root>
+                        <Epic activeStory={activeStory}>
+                            <Root id="home" activeView={activeView} popout={popout}>
+                                <View
+                                    id="home"
+                                    modal={homeModals}
+                                    activePanel={getActivePanel("home")}
+                                    history={history}
+                                    onSwipeBack={() => goBack()}
+                                >
+                                    <HomePanelBase id="base" withoutEpic={false}/>
+                                    <HomePanelGroups id="groups"/>
+                                </View>
+                            </Root>
+                            <Root id="more" activeView={activeView} popout={popout}>
+                                <View
+                                    id="more"
+                                    modal={homeModals}
+                                    activePanel={getActivePanel("more")}
+                                    history={history}
+                                    onSwipeBack={() => goBack()}
+                                >
+                                    <MorePanelBase id="callmodal"/>
+                                </View>
+                                <View
+                                    id="modal"
+                                    modal={homeModals}
+                                    activePanel={getActivePanel("modal")}
+                                    history={history}
+                                    onSwipeBack={() => goBack()}
+                                >
+                                    <MorePanelExample id="filters"/>
+                                </View>
+                            </Root>
+                        </Epic>
                     </AppRoot>
                 </AdaptivityProvider>
             </ConfigProvider>
