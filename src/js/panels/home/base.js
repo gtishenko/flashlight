@@ -74,7 +74,14 @@ class HomePanelBase extends React.Component {
             if(this.state.activeFlashlight === -1) {
                 this.setState({
                     activeFlashlight: 0
-                })
+                });
+                if(flashlight[0] && this.state.flashlight !== true) {//включаем фонарик
+                    this.setState({
+                        flashlight: true
+                    });
+                    console.log("Включаем фонарик");
+                    bridge.send("VKWebAppFlashSetLevel", {"level": 1});
+                }
             }
             interval = setInterval(() => {
                 this.setState({
